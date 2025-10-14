@@ -1,6 +1,6 @@
 function setLanguage(lang) {
     if (lang === 'en') {
-      window.location.href = "sum.html";
+      window.location.href = "index.html";
     } else if (lang === 'ka') {
       window.location.href = "geo.html";
     }
