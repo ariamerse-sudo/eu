@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>European Schools: Georgia</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Entrance Screen Styles */
+        .entrance-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(4, 64, 81, 1) 0%, rgba(6, 106, 127, 1) 50%, rgba(4, 64, 81, 1) 100%);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+        }
+
+        .entrance-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            animation: floatingOrbs 12s ease-in-out infinite;
+        }
+
+        @keyframes floatingOrbs {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(15px, -20px) scale(1.1); }
+            50% { transform: translate(-10px, 15px) scale(0.9); }
+            75% { transform: translate(20px, 5px) scale(1.05); }
+        }
+
+        .entrance-content {
+            text-align: center;
+            color: white;
+            animation: fadeInUp 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            z-index: 2;
+            padding: 3rem 2rem;
+            backdrop-filter: blur(15px);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        .entrance-content h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #ffffff 0%, #b3e5fc 50%, #e1f5fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titlePulse 4s ease-in-out infinite alternate;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes titlePulse {
+            0% { filter: drop-shadow(0 0 15px rgba(255,255,255,0.4)) brightness(1); }
+            100% { filter: drop-shadow(0 0 25px rgba(255,255,255,0.7)) brightness(1.1); }
+        }
+
+        .entrance-content h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+            color: rgba(255,255,255,0.95);
+            animation: subtitleFloat 3s ease-out 0.7s both;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes subtitleFloat {
+            0% { opacity: 0; transform: translateY(-30px) scale(0.8); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .entrance-content p {
+            font-size: 1.8rem;
+            opacity: 0.85;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            animation: welcomeFade 3s ease-out 1.2s both;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes welcomeFade {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            100% { opacity: 0.85; transform: translateY(0) scale(1); }
+        }
+
+        .entrance-content::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 180deg, transparent, rgba(255,255,255,0.08), transparent);
+            animation: rotateReverse 25s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotateReverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .entrance-content h1 {
+                font-size: 2.5rem;
+            }
+            .entrance-content h2 {
+                font-size: 1.8rem;
+            }
+            .entrance-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Entrance Screen -->
+    <div class="entrance-screen" id="entranceScreen">
+        <div class="entrance-content">
+            <h1>European Schools</h1>
+            <h2>Georgia</h2>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div class="main-content" id="mainContent">
+        <div class="cursor"></div>
+        <div class="cursor cursor2"></div>
+        <script src="script.js"></script>
+    <div class="slider-main">
+        <ul class='slider'>
+            <li class='item' style="background-image: url('1.jpg')">
+                <div class='content'>
+                    <h2 class='title'>5th public school of Batumi</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('2.jpg')">
+                <div class='content'>
+                    <h2 class='title'>American International school Progress - Batumi</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('3.jpg')">
+                <div class='content'>
+                    <h2 class='title'>Gymnasium named after St. Andrew the Great</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('4.jpg')">
+                <div class='content'>
+                    <h2 class='title'>№20 Public School</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('5.jpg')">
+                <div class='content'>
+                    <h2 class='title'>Pheria Public School</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('6.jpg')">
+                <div class='content'>
+                    <h2 class='title'>Batumi №8 Public School</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+            <li class='item' style="background-image: url('7.jpg')">
+                <div class='content'>
+                    <h2 class='title'>13th public school of Batumi</h2>
+                    <button>Read More</button>
+                </div>
+            </li>
+        </ul>
+        <nav class='nav'>
+            <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+            <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+        </nav>
+    </div>
+    
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- yall like the omni man thicc booty cheeks? 🌹❤ i fucking hate windows 10 emojis
+i need friends im so desprate -->
+    <header class="header" id="myHeader">
+        <div class="left-section">
+            <img src="favicon.png" alt="Logo" class="logo">
+            <h2>European Schools: Georgia</h2>
+        </div>
+        <nav class="navbar">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#types" class="nav-link">Types of Schools</a>
+            <a href="#subjects" class="nav-link">Subjects</a>
+            <a href="#exams" class="nav-link">Exams</a>
+        </nav>
+        <div class="right-section">
+            <div class="dropdown-3d">
+                <span class="language-btn">Language</span>
+                <ol class="language-menu">
+                    <li class="language-item">
+                        <span class="english" onclick="setLanguage('en')"></span>
+                    </li>
+                    <li class="language-item">
+                        <span class="georgian" onclick="setLanguage('ka')"></span>
+                    </li>
+                </ol>
+            </div>
+            <div class="profile-section">
+                <a href="https://guns.lol/anna_nas"> <img src="gifuh.gif" class="profile-icon" alt="Profile"> </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="horizontal-scroll-container" id="horizontalScroll">
+            <div class="scroll-card" id="about">
+                <h2>What Are Secondary Schools Like in Georgia?</h2>
+                <p>In Georgia, students go to school from grade 1 to grade 12. The last part—grades 10 to 12—is called secondary education. These are the final years before students graduate and decide whether to go to university or start working.</p>
+            </div>
+
+            <div class="scroll-card" id="types">
+                <h2>Types of Schools in Georgia</h2>
+                <h3>Public Schools:</h3>
+                <p>Free and run by the government. Most students go here. They teach grades 1–12.</p>
+                <h3>Private Schools:</h3>
+                <p>Paid schools with smaller classes or special programs. Some teach in English or follow international systems.</p>
+            </div>
+
+            <div class="scroll-card" id="subjects">
+                <h2>What Subjects Do Students Learn?</h2>
+                <h3>Core subjects:</h3>
+                <p>Georgian language, math, history, biology, chemistry, physics, and foreign languages (like English or Russian).</p>
+                <h3>Optional subjects:</h3>
+                <p>Art, music, computer science, physical education, and civic education.</p>
+                <p><em>Students can choose some subjects based on what they enjoy or what they want to do in the future.</em></p>
+            </div>
+
+            <div class="scroll-card">
+                <h2>What's a Typical School Day Like?</h2>
+                <ul>
+                    <li>School usually starts around <strong>8:30 in the morning</strong> and ends by <strong>3:00 in the afternoon</strong></li>
+                    <li>There are about <strong>6–7 lessons</strong> each day, and each lesson lasts around <strong>45 minutes</strong></li>
+                    <li>Students get short breaks between classes and a longer break for lunch</li>
+                    <li>Some schools have cafeterias, but many students bring food from home</li>
+                </ul>
+            </div>
+
+            <div class="scroll-card">
+                <h2>After School Activities</h2>
+                <p>After classes, students can join fun activities like:</p>
+                <ul>
+                    <li>Sports teams (football, basketball, etc.)</li>
+                    <li>Music or dance groups</li>
+                    <li>Art clubs</li>
+                    <li>Debate or science clubs</li>
+                </ul>
+                <p><em>These activities help students make friends, learn new skills, and enjoy school life.</em></p>
+            </div>
+
+            <div class="scroll-card" id="exams">
+                <h2>Exams and Cheating</h2>
+                <p>Students used to take graduation exams, but now they only take <strong>national exams at the end of grade 12</strong> if they want to go to university. These exams are important and taken very seriously.</p>
+                <p>To stop cheating, schools use cameras and special rules during exams. Teachers also talk to students about honesty and doing their best.</p>
+            </div>
+        </div>
+    </main>
+    
+    <section class="school-spotlight-section fade-section" data-bg="skoll.png">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-content">
+            <h2>St. Matthias the Apostle Lyceum</h2>
+            <p>St. Matthias the Apostle Lyceum is a private school in Georgia that teaches students from grades 1 through 12. It offers a full general education, starting from early childhood and continuing all the way to graduation. The school focuses on core academic subjects like Georgian language, English, and mathematics, helping students build strong foundations for future studies and careers.</p>
+        </div>
+    </section>
+
+    <section class="school-spotlight-section fade-section" data-bg="skola.png">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-content">
+            <h2>After-School Programs</h2>
+            <p>What makes this school special is its after-school program. Students have the chance to explore their talents in many creative and cultural activities. These include dance, folk dance, traditional Georgian chanting, piano, music (solfejio), and performing in a school band. Artistic students can join clubs for painting, felting, tapestry, batik, modeling, and sewing. There are also options for learning more English, playing chess, and joining sports teams like football and basketball.</p>
+        </div>
+    </section>
+
+    <section class="school-spotlight-section fade-section" data-bg="skolll.png">
+        <div class="spotlight-bg"></div>
+        <div class="spotlight-content">
+            <h2>A Place to Grow</h2>
+            <p>The school creates a lively and supportive environment where students not only study but also grow as individuals. With so many opportunities to learn, create, and connect, St. Matthias the Apostle Lyceum is a place where education feels exciting and meaningful.</p>
+        </div>
+    </section>
+    
+    <footer class="enhanced-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About This Project</h3>
+                <p>A comprehensive guide to secondary education in Georgia, exploring school types, subjects, and opportunities for students.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Education</a></li>
+                    <li><a href="#types">School Types</a></li>
+                    <li><a href="#subjects">Subjects</a></li>
+                    <li><a href="#exams">Exams</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Featured School</h3>
+                <p>St. Matthias the Apostle Lyceum</p>
+                <p class="footer-small">Offering quality education and diverse after-school programs</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Project by Ana Nagervadze • Grade 10</p>
+            <p class="footer-note">Made with dedication for educational purposes</p>
+        </div>
+    </footer>
+    <div class="hidden-picture">
+        <a href="https://www.youtube.com/watch?v=2OoZacZR6eA" target="_blank">
+            <img src="prank.jpg" alt="Prank Picture">
+        </a>
+    </div>
+    </div> <!-- End main-content -->
+
+    <script>
+        // Entrance animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const entranceScreen = document.getElementById('entranceScreen');
+                entranceScreen.style.transform = 'translateY(-100%)';
+                setTimeout(function() {
+                    entranceScreen.style.display = 'none';
+                }, 1500); // Wait for smooth transition to complete
+            }, 3000); // Show entrance for 3 seconds
+        });
+    </script>
+</body>
+
+</html>
